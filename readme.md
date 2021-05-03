@@ -6,8 +6,9 @@ Vaccine spotter is a simple tool for tracking the availability of Covid vaccines
 It uses the api from COWIN site to monitor for vaccine availability and sent an immediate email to user.
  ✨
 
-## Features
+## Instructions
 
+- Search for district id in provided csv file
 - Run in the terminal and monitor the vaccine availability
 - Sent email to email address set by user immediately when there is vaccines available
 
@@ -32,22 +33,6 @@ to = ['<to_email@gmail.com>']
 # time gap
 minutes = 1
 
-__district = "district_id"
-'''
-Some examples: 
-295 - Kasargod
-296 - Thiruvananthapuram
-298 - kollam
-299 - Wayanad
-300 - Pathanamthitta
-302 - Malappuram
-303 - thrissue
-305 - Kozikode
-306- idukki
-307 - ernakulam
-308 - palakkad
-'''
-``` 
 
 Run the script after setting the values 
 ```sh
