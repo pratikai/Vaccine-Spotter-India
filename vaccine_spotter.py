@@ -4,33 +4,18 @@ import os
 import smtplib
 from time import time,ctime
 
-email_user = '<from_email@email.com>'
-email_password = '<password>'
+email_user = 'pratikay@gmail.com'
+email_password = 'tashu!1997'
 
 sent_from = email_user
-to = ['<to_email@email.com>']
+to = ['pratik.kayal@iitgn.ac.in']
 
 minutes = 1
 
 today = date.today()
 
 
-__district = "297" #kannur
-
-'''
-295 - Kasargod
-296 - Thiruvananthapuram
-298 - kollam
-299 - Wayanad
-300 - Pathanamthitta
-302 - Malappuram
-303 - thrissue
-305 - Kozikode
-306- idukki
-307 - ernakulam
-308 - palakkad
-'''
-
+__district = "581"
 
 
 d1 = today.strftime("%d/%m/%Y")
@@ -51,7 +36,7 @@ To: %s
 Subject: %s
 %s
 """ % (sent_from, ", ".join(to), subject, body)
-	print email_text
+	print(email_text)
 
 	try:
 	    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
@@ -60,9 +45,9 @@ Subject: %s
 	    server.sendmail(sent_from, to, email_text)
 	    server.close()
 
-	    print 'Email sent!'
+	    print('Email sent!')
 	except Exception as e:
-	    print 'Something went wrong...'
+	    print('Something went wrong...')
 	    print (e)
 	
 
@@ -86,22 +71,14 @@ def call_api():
     response = requests.get(api)
 
     if response.status_code == 200:
-        print "API call success"
+        print("API call success")
         result = response.json()
         output = parse_json(result)
         if len(output) > 0:
-            print "Vaccines available"
+            print("Vaccines available")
             print('\007')
             result_str = ""
             for center in output:
-
-                '''print center['name']
-                print "block:"+center['block_name']
-                print "vaccine count:"+str(center['available_capacity'])
-                print "vaccines type:" + center['vaccine_type']
-                print center['date']
-                print "age_limit:"+ str(center['age_limit'])
-                print "---------------------------------------------------------" '''
                 result_str = result_str + center['name'] + "\n"
                 result_str = result_str + "block:"+center['block_name'] + "\n"
                 result_str = result_str + "vaccine count:"+str(center['available_capacity']) + "\n"
@@ -113,7 +90,7 @@ def call_api():
 
         else:
             
-            print "Vaccines not available \n"
+            print("Vaccines not available \n")
 
 t = datetime.now()
 
@@ -124,5 +101,3 @@ if __name__ == '__main__':
         if delta.seconds >= minutes * 60:
             call_api()
             t = datetime.now()
-        
-
